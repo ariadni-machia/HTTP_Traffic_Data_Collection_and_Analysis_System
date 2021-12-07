@@ -1,0 +1,116 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: url("chill.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.main-box {
+    width: 45%;
+    height: 114%;
+    position: absolute;
+    left: 5%;
+    top: 0%;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    padding: 0;
+}
+
+.main-box p {
+    font-family:'Courier New', Courier, monospace;
+    color: whitesmoke;
+}
+
+.main-box h4 {
+    color: whitesmoke;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: normal;
+}
+
+.main-box .star {
+    color: rgb(180, 117, 100);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.main-box h1 {
+    color: rgb(180, 117, 100);
+    text-decoration: none;
+    text-align: center;
+}
+
+.main-box input[type="button"] {
+    border: none;
+    outline: none;
+    height: 24px;
+    width: 60%;
+    background: rgb(180, 117, 100);
+    color: whitesmoke;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.main-box .p .star {
+    color: rgb(180, 117, 100);
+}
+
+.main-box label {
+    color:whitesmoke;
+}
+
+.other {
+    width: 40%;
+    height: 15%;
+    position: absolute;
+    left: 52%;
+    top: 30%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0;
+    text-align: center;
+    color: whitesmoke;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.other a:hover {
+    color:rgb(180, 117, 100);
+}
+
+.other a {
+    color: rgb(184, 210, 220);
+}
+
+.info {
+    width: 40%;
+    height: 15%;
+    position: absolute;
+    left: 52%;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0;
+    text-align: center;
+    color: whitesmoke;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.info a:hover {
+    color:rgb(180, 117, 100);
+}
+
+.info a {
+    color: rgb(184, 210, 220);
+}
+
+.home {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+
+.logo {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
