@@ -1,0 +1,87 @@
+CREATE DATABASE db_catharstrophe;
+
+CREATE TABLE users(
+	email VARCHAR(50) NOT NULL UNIQUE,
+	username VARCHAR(20) NOT NULL UNIQUE,
+	pwd VARCHAR(50) NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,	
+	gender ENUM('Female', 'Male', 'Non-binary'),
+	date_of_birth DATE, 
+	PRIMARY KEY (email, username)
+)engine=InnoDB;
+
+CREATE TABLE admins(
+	email VARCHAR(50) NOT NULL UNIQUE,
+	username VARCHAR(20) NOT NULL UNIQUE,
+	pwd VARCHAR(50) NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,	 
+	PRIMARY KEY (email, username)
+);
+
+CREATE TABLE har_info(
+	id INT NOT NULL AUTO_INCREMENT,
+	entry INT NOT NULL,
+	usr_name VARCHAR(20) NOT NULL,
+	startedDateTime VARCHAR(24),
+	wait FLOAT(7,3),
+	serverIpAddress VARCHAR(100),
+	method VARCHAR(10),
+	url VARCHAR(200),
+	status INT(4),
+	statusText VARCHAR(30),
+	lat VARCHAR(20),
+	lon VARCHAR(20),
+    	req_content_type VARCHAR(60),
+	req_cache_control VARCHAR(200),
+	req_pragma VARCHAR(20),
+	req_expires TINYTEXT,
+	req_age VARCHAR(10),
+	req_last_modified TINYTEXT,
+	req_host VARCHAR(100),
+	res_content_type VARCHAR(60),
+	res_cache_control VARCHAR(200),
+	res_pragma VARCHAR(20),
+	res_expires TINYTEXT,
+	res_age VARCHAR(10),
+	res_last_modified TINYTEXT,
+	res_host VARCHAR(100),
+	PRIMARY KEY(id, entry),    
+	CONSTRAINT usr_name_har_info FOREIGN KEY (usr_name) REFERENCES users(username)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE users_hars(
+	har_id INT NOT NULL,
+	usr_name VARCHAR(20) NOT NULL,
+	date_time DATETIME NOT NULL,
+	PRIMARY KEY(har_id),
+	CONSTRAINT usr_name_users_hars FOREIGN KEY (usr_name) REFERENCES users(username),
+	CONSTRAINT id_users_hars FOREIGN KEY (har_id) REFERENCES har_info(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE cities(
+	har_id INT NOT NULL,
+	usr_name VARCHAR(20) NOT NULL,
+	city VARCHAR(20),
+	lat VARCHAR(20),
+	lon VARCHAR(20),
+	PRIMARY KEY(har_id),
+	CONSTRAINT usr_name_cities FOREIGN KEY (usr_name) REFERENCES users(username),
+	CONSTRAINT id_cities FOREIGN KEY (har_id) REFERENCES har_info(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE i_providers(
+	har_id INT NOT NULL,
+	usr_name VARCHAR(20) NOT NULL,
+	provider VARCHAR(60),
+	PRIMARY KEY(har_id),
+	CONSTRAINT usr_name_i_providers FOREIGN KEY (usr_name) REFERENCES users(username),
+	CONSTRAINT id_i_providers FOREIGN KEY (har_id) REFERENCES har_info(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
